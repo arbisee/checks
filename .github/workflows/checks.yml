@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "repo name: ${{ inputs.repository }}"
+          echo "repo name: ${{ inputs.repository }}"
