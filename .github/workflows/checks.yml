@@ -5,10 +5,17 @@ on:
         description: "Repository name"
         required: true
         type: string
+      ref:
+        description: "ref to check out"
+        required: true
+        type: string
 
 jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "repo name: ${{ inputs.repository }}"
+      - uses: actions/checkout@v3
+        with:
+          repository: "${{ inputs.repository }}"
+          ref: "${{ inputs.ref }}"
+      - run: ls
