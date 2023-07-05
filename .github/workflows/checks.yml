@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: "Repository name"
+        required: true
+        type: string
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+        echo "repo name: ${{ inputs.repository }}"
