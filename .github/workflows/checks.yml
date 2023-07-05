@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: "${{ inputs.repository }}"
+          repository: "arbisee/${{ inputs.repository }}"
           ref: "${{ inputs.ref }}"
       - run: ls
