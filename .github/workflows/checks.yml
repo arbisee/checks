@@ -18,4 +18,5 @@ jobs:
         with:
           repository: "arbisee/${{ inputs.repository }}"
           ref: "${{ inputs.ref }}"
+          token: "${{ secrets.REPO_TOKEN }}"
       - run: ls
