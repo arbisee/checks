@@ -25,14 +25,14 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: very secure install
+        run: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
       - name: Freeze dependencies
         run: pip freeze > requirements.txt
+      - name: run the very secure tool
+        run: grype --fail-on medium dir:.
       - name: Install pip-licenses
         run: pip3 install pip-licenses
       - name: Scan for licenses
         run: pip-licenses --fail-on="GPL License"
         working-directory: .
-      - name: Scan current project
-        uses: anchore/scan-action@v3
-        with:
-          path: "."
