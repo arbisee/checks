@@ -19,6 +19,7 @@ jobs:
           repository: "arbisee/${{ inputs.repository }}"
           ref: "${{ inputs.ref }}"
           token: "${{ secrets.REPO_TOKEN }}"
+      - run: ls
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
@@ -29,3 +30,8 @@ jobs:
       - name: Scan for licenses
         run: pip-licenses --allow-only="MIT License;Apache"
         working-directory: .
+      - name: Run Trivy vulnerability scanner in fs mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
