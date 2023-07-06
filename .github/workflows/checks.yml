@@ -30,8 +30,7 @@ jobs:
       - name: Scan for licenses
         run: pip-licenses --fail-on="GPL License"
         working-directory: .
-      - name: Run Trivy vulnerability scanner in fs mode
-        uses: aquasecurity/trivy-action@master
+      - name: Scan current project
+        uses: anchore/scan-action@v3
         with:
-          scan-type: 'fs'
-          scan-ref: '.'
+          path: "."
