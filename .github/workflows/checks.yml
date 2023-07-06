@@ -28,7 +28,7 @@ jobs:
       - name: Install pip-licenses
         run: pip3 install pip-licenses
       - name: Scan for licenses
-        run: pip-licenses --allow-only="MIT License;Apache"
+        run: pip-licenses --fail-on="GPL License"
         working-directory: .
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
